@@ -23,6 +23,31 @@ A machine learning pipeline to analyze prostate cancer risk factors from lifesty
   - Target: `risk_level` (Low/Medium/High)
 
 ## 🔍 Exploratory Analysis
-```python
-data.describe().T  # Basic statistics
-data.isnull().sum()  # Missing values
+  - Check basic Statistics
+  - Identify missig values
+  - Visulize Distribution
+
+## ⚙️ Data Preprocessing
+  - Split data: 80% training, 20% Testing
+  - Create Process Pipeline
+    - Number: Fill missing values with mean -standardize
+    - Categorical: Fill missing values with 'most frequent' -OHE
+## 🤖 Build Model
+  - Using Logistic Regression
+  - Tuining with GridsearchCV to find best parameters:
+    - tested 32 combination
+      - 2 numerical
+      - 3 categorical
+      - 2 fill values
+      - 4 Regulariztion strengths
+      - Each combination using 10 fold cross validation
+
+## 📊 Results
+  - Best Model Achieve:
+    - 85.5% Cross Validation Accuracy
+    - 87% Test Accuracy
+## Optimal Settings:
+  - Mean Impuatation for numbers
+  - Most Frequent for missing values
+  - Medium regulariztion strength (c=10)
+
